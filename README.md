@@ -107,13 +107,14 @@ npm run dev
   👉 Full Postman collection with real responses:
 
   🔗 [View Postman Collection](https://abhishek-3585218.postman.co/workspace/Zorvyn~d043c0d8-ed27-401e-a762-b44d3f85fc07/collection/45090748-6bea6136-2e64-4f75-a2b7-911c903aa502?action=share&creator=45090748&active-environment=45090748-e7b6e84a-6ef6-477c-86ef-51be5f99179d)
+
   ✔ Covers:
 
-  Authentication
-  Transactions
-  Dashboard
-  User management
-  Error cases
+  - Authentication
+  - Transactions
+  - Dashboard
+  -  User management
+  -  Error cases
 
 ### 🔐 Authentication APIs
 
