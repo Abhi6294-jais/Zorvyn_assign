@@ -5,18 +5,28 @@ const authMiddleware = require('../middleware/auth');
 const { isAuthenticated, isAdminOrAnalyst } = require('../middleware/roleCheck');
 const { validate, transactionValidation } = require('../middleware/validation');
 
-// All transaction routes require authentication
 router.use(authMiddleware);
 router.use(isAuthenticated);
 
-// Viewer can view transactions
+// ✅ Specific named routes FIRST (before /:id)
+router.get('/stats/summary',
+  isAdminOrAnalyst,
+  transactionController.getTransactionStats
+);
+
+router.post('/bulk-delete',
+  isAdminOrAnalyst,
+  transactionController.bulkDeleteTransactions
+);
+
+// General listing and detail
 router.get('/', validate(transactionValidation.filters), transactionController.getTransactions);
 router.get('/:id', validate(transactionValidation.id), transactionController.getTransactionById);
 
 // Analyst and Admin can create, update, delete
-router.post('/', 
+router.post('/',
   isAdminOrAnalyst,
-  validate(transactionValidation.create), 
+  validate(transactionValidation.create),
   transactionController.createTransaction
 );
 

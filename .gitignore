@@ -1,12 +1,12 @@
 # Dependencies
 node_modules/
-package-lock.json
-yarn.lock
 
 # Environment variables
 .env
 .env.local
 .env.production
+.env.*
+!.env.example
 
 # Database
 *.db
@@ -45,6 +45,6 @@ temp/
 # Uploads
 uploads/
 
-# MongoDB data
+# MongoDB data (if using local dumps)
 data/
 dump/
